@@ -5,7 +5,7 @@ Fetching IQ data from 2 HackRFs
 
 On Ubuntu, install the following:
 
-sudo apt install libhackrf-dev
+    sudo apt install libhackrf-dev
 
 
 

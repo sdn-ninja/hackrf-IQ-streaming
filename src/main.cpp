@@ -11,8 +11,8 @@
 
 #define FREQUENCY (225.648 * 1e6)
 #define SAMPLE_RATE (8 * 1e6)
-//Device serial numbers
-char REF_DEVICE_SN[]  = "000000000000000042a068dc36413907";
+// Device serial numbers
+char REF_DEVICE_SN[] = "000000000000000042a068dc36413907";
 char SURV_DEVICE_SN[] = "000000000000000057b068dc245abe63";
 
 struct ByteEmitter
@@ -33,11 +33,11 @@ struct ByteEmitter
             survillanceChannelFile << byte;
             survillanceChannelFile.close();
         }
-            /*
-            std::cout << source << std::endl;
-            printf("%02x ", byte);
-            fflush(stdout);
-            */
+        /*
+        std::cout << source << std::endl;
+        printf("%02x ", byte);
+        fflush(stdout);
+        */
     }
 };
 
@@ -55,8 +55,8 @@ struct AM
             const complex_t &c = *i;
             // scale magnitude in the interval [-1.0, ~1.0] ( 0.984406 )
             double magnitude = std::norm(c) - 1;
-            //std::cout << c << std::endl;
-            // manchester coding, low-to-high = 0, high-to-low = 1
+            // std::cout << c << std::endl;
+            //  manchester coding, low-to-high = 0, high-to-low = 1
             if (prev_mag < magnitude)
             {
                 stream << 1;
@@ -65,9 +65,9 @@ struct AM
             {
                 stream << 0;
             }
-            //else
+            // else
             //{
-                //printf("\n");
+            // printf("\n");
             //}
 
             prev_mag = magnitude;
@@ -108,8 +108,8 @@ int main(int argc, char **argv)
         survillanceDev.set_amp_enabled(false);
         survillanceDev.set_lna_gain(32);
         survillanceDev.set_vga_gain(30);
-        survillanceDev.set_hw_sync_mode(1); //Equivelant of -H hw_sync_enabl (in hackrf_transfer)] # Synchronise USB transfer using GPIO pins.
-                                            //The surv device is the slave of the ref device in clock synchronization
+        survillanceDev.set_hw_sync_mode(1); // Equivelant of -H hw_sync_enabl (in hackrf_transfer)] # Synchronise USB transfer using GPIO pins.
+                                            // The surv device is the slave of the ref device in clock synchronization
 
         survillanceDev.start(); // start this first. it will wait for the ref device clock to trigger it
         referenceDev.start();

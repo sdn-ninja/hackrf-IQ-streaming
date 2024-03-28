@@ -28,7 +28,6 @@ public:
     void set_vga_gain(uint32_t gain);
     void set_hw_sync_mode(uint8_t enabled);
 
-
     void start();
     void stop();
 
@@ -40,11 +39,9 @@ protected:
     bool _running;
     iq_reader _iq_reader;
     SURVILLANCEDEMOD _demodulator;
-    
+
     static int rx_callback(hackrf_transfer *transfer);
-
 };
-
 
 #define HACKRF_CHECK_STATUS(ret, message)  \
     if (ret != HACKRF_SUCCESS)             \

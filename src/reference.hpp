@@ -39,11 +39,9 @@ protected:
     bool _running;
     iq_reader _iq_reader;
     REFERENCEDEMOD _demodulator;
-    
+
     static int rx_callback(hackrf_transfer *transfer);
-
 };
-
 
 #define HACKRF_CHECK_STATUS(ret, message)  \
     if (ret != HACKRF_SUCCESS)             \

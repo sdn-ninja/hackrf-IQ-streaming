@@ -7,6 +7,11 @@ On Ubuntu, install the following:
 
     sudo apt install libhackrf-dev
 
+You also need to define your devices' serial numbers in src/main.cpp (use hackrf_info to find SNs)
+
+    char REF_DEVICE_SN[] = "FIRST_DEVICE_SERIAL_NUMBER";
+    char SURV_DEVICE_SN[] = "SECOND_DEVICE_SERIAL_NUMBER";
+
 Then
 
     mkdir build
@@ -15,9 +20,5 @@ Then
     make
     ./blah2-hackrf
 
-You also need to define your devices' serial numbers in src/main.cpp (use hackrf_info to find SNs)
-
-    char REF_DEVICE_SN[] = "FIRST_DEVICE_SERIAL_NUMBER";
-    char SURV_DEVICE_SN[] = "SECOND_DEVICE_SERIAL_NUMBER";
     
 Kudos to evilsocket - Simone Margaritelli, author of HackRFPP
